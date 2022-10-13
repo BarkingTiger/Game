@@ -16,7 +16,7 @@ characters  = [
 ];
 
 const G = {
-    WIDTH: 200,
+    WIDTH: 150,
     HEIGHT: 150
 };
 
@@ -33,7 +33,8 @@ let c = "green";
 // Game runtime options
 // Refer to the official documentation for all available options
 options  = {
-    viewSize: {x: G.WIDTH, y: G.HEIGHT}
+    viewSize: {x: G.WIDTH, y: G.HEIGHT},
+    theme: "dark"
 };
 
 // The game loop function
@@ -49,7 +50,7 @@ function  update() {
 	}
 
     //ground
-    color("black");
+    color("yellow");
     rect(0, 3 * G.HEIGHT / 4, G.WIDTH, 50);
 
     //player
@@ -65,11 +66,6 @@ function  update() {
     //if red count goes down, else timer goes down
     if (c == "red") {
         count -= 1;
-        if (!moving) {
-            if(ticks % 10 == 0) {
-                addScore(1);
-            }
-        }
     }
     else {
         timer -= 1;
@@ -103,7 +99,7 @@ function  update() {
 
     //flag
     color(c);
-    flag = rect(G.HEIGHT / 2, G.WIDTH / 16, 50, 25);
+    flag = rect(G.HEIGHT / 3, G.WIDTH / 16, 50, 25);
 
     //input
     if (input.isJustPressed) {
